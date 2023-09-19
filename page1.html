@@ -37,6 +37,19 @@
         <iframe id="html-preview"></iframe>
      </div>
     </div>
-    <script type="text/javascript" src="javascript.js"></script>
+    <script>
+        const combinedCode = document.getElementById('combined-code');
+        const htmlPreview = document.getElementById('html-preview');
+        const updateButton = document.getElementById('update-button');
+        const verification = document.getElementById('verification');
+        updateButton.addEventListener('click', updatePreview);
+
+        function updatePreview() {
+            const codeContent = combinedCode.value;
+
+            htmlPreview.srcdoc = codeContent + "<span>test</span>";
+
+        }
+    </script>
 </body>
 </html>
