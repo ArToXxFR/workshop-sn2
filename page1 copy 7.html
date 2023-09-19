@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Éditeur HTML et CSS avec Rendu</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div id="code-editor">
+        <h2>AFFICHAGE DU SCRIPT</h2>
+        <textarea id="combined-code" rows="15" cols="50">
+
+<!DOCTYPE html>
+<head>
+    <style>
+        h1 {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+     <h1>Texte Rouge</h1>
+     <p>Ceci est le contenu du rendu.</p>
+</body>
+</html>
+
+        </textarea>
+
+        
+    </div>
+    <button id="update-button">VALIDER</button>
+    <div class="Block1">
+        <h2>RENDU</h2>
+     <div id="preview">
+        <iframe id="html-preview"></iframe>
+     </div>
+    </div>
+    <script type="text/javascript" src="javascript.js"></script>
+</body>
+</html>
