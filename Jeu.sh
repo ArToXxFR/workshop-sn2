@@ -1,1 +1,0 @@
-firefox ./jeu1.html
