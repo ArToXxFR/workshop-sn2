@@ -17,8 +17,8 @@
 <head>
 <style>
 
-p.solid {border-style: solid;}
-p {border-width: 5px 100000px;}
+span {border-style: solid;}
+span {border-width: 100000px;}
 
 </style>
 </head>
@@ -27,7 +27,7 @@ p {border-width: 5px 100000px;}
 <h2>Trouve le code secret</h2>
 <p>La bordure est vachement longue</p>
 
-<p class="solid">Mot de passe</p>
+
 
 
 </body>
@@ -54,7 +54,7 @@ p {border-width: 5px 100000px;}
         function updatePreview() {
             const codeContent = combinedCode.value;
 
-            htmlPreview.srcdoc = codeContent + "<span>test</span>";
+            htmlPreview.srcdoc = codeContent + "<span>GRACE HOPPER</span>";
 
         }
     </script>

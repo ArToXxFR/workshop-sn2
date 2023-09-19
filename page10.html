@@ -13,21 +13,29 @@
         <textarea id="combined-code" rows="15" cols="50">
 
 <!DOCTYPE html>
+<html>
 <head>
-    <style>
-        h1 {
-            color: red;
-        }
-        span {
-            color: white;
-        }
-    </style>
+<style>
+p.boite {
+    border: 2px solid black;
+    outline: #4CAF50 solid 50px;
+    margin: auto;  
+    padding: 20px;
+    text-align: center;
+}
+</style>
 </head>
 <body>
-     <h1>Trouve le mot de passe</h1>
-     <p>Ceci est le contenu du rendu.</p>
+
+<h2>Exercice des bordure</h2>
+<br>
+<br>
+<br>
+<p class="boite">Cette boite a une bordure noir de 2px et la bordure extérieur vert est de 50px change la taille de la bordure vert pour découvrir le mot secret</p>
+</div>
 </body>
 </html>
+            
 
         </textarea>
 
@@ -50,7 +58,7 @@
         function updatePreview() {
             const codeContent = combinedCode.value;
 
-            htmlPreview.srcdoc = codeContent + "<span>ADA LOVELACE</span>";
+            htmlPreview.srcdoc = codeContent + "<span>DONNA DUBINSKY</span>";
 
         }
     </script>

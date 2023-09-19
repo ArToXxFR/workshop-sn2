@@ -14,20 +14,51 @@
 
 <!DOCTYPE html>
 <head>
-    <style>
-        h1 {
-            color: red;
+<style>
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: white;
+}
+
+.container {
+    position: relative;
+}
+
+.word1, span {
+    
+    font-size: 30px;
+    font-weight: bold;
+    color: blue;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.word1 {
+    font-family: Courier, monospace;
         }
-        span {
-            color: white;
-        }
-    </style>
+
+span {
+    font-family:"Impact", "Haettenschweiler", sans-serif;
+    letter-spacing: 1px; /* Augmente l'espacement entre les caractères */
+    }
+
+
+
+</style>
 </head>
 <body>
-     <h1>Trouve le mot de passe</h1>
-     <p>Ceci est le contenu du rendu.</p>
+    <div class="container">
+        <div class="word1">JOAN_BALL</div>
+    </div>
 </body>
 </html>
+            
+            
 
         </textarea>
 
@@ -50,7 +81,7 @@
         function updatePreview() {
             const codeContent = combinedCode.value;
 
-            htmlPreview.srcdoc = codeContent + "<span>ADA LOVELACE</span>";
+            htmlPreview.srcdoc = codeContent + "<span>JOAN_BALL</span>";
 
         }
     </script>
