@@ -2,7 +2,7 @@
 
 path=$(pwd)
 
-echo "Bonjour et bienvenue dans CodeWebPourTous"
+echo "Bonjour et bienvenue dans  "
 echo "Voulez-vous jouer ?"
 echo "Répondez oui pour commencer ou non pour éteindre le programme"
 
