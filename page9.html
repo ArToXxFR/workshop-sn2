@@ -1,0 +1,73 @@
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Éditeur HTML et CSS avec Rendu</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div id="code-editor">
+        <h2>AFFICHAGE DU SCRIPT</h2>
+        <textarea id="combined-code" rows="15" cols="50">
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+body {
+    background-color: #00aeff;
+}
+
+div {
+    margin: 30px;
+    background-color: #ffffff;
+    border: 2px solid black;
+    opacity: 0;
+}
+
+div .span {
+    margin: 5%;
+    font-weight: bold;
+    color: #000000;
+    opacity: 0;
+}
+</style>
+</head>
+<body>
+
+
+</body>
+</html>
+
+            
+
+        </textarea>
+
+        
+    </div>
+    <button id="update-button">VALIDER</button>
+    <div class="Block1">
+        <h2>RENDU</h2>
+     <div id="preview">
+        <iframe id="html-preview"></iframe>
+     </div>
+    </div>
+    <script>
+        const combinedCode = document.getElementById('combined-code');
+        const htmlPreview = document.getElementById('html-preview');
+        const updateButton = document.getElementById('update-button');
+        const verification = document.getElementById('verification');
+        updateButton.addEventListener('click', updatePreview);
+
+        function updatePreview() {
+            const codeContent = combinedCode.value;
+
+            htmlPreview.srcdoc = codeContent + "<div><span>JANESE SWANSON</span></div>";
+
+        }
+    </script>
+</body>
+</html>

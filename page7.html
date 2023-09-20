@@ -1,0 +1,89 @@
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Éditeur HTML et CSS avec Rendu</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div id="code-editor">
+        <h2>AFFICHAGE DU SCRIPT</h2>
+        <textarea id="combined-code" rows="15" cols="50">
+
+<!DOCTYPE html>
+<head>
+<style>
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: white;
+}
+
+.container {
+    position: relative;
+}
+
+.word1, span {
+    
+    font-size: 30px;
+    font-weight: bold;
+    color: blue;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.word1 {
+    font-family: Courier, monospace;
+        }
+
+span {
+    font-family:"Impact", "Haettenschweiler", sans-serif;
+    letter-spacing: 1px; /* Augmente l'espacement entre les caractères */
+    }
+
+
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="word1">JOAN_BALL</div>
+    </div>
+</body>
+</html>
+            
+            
+
+        </textarea>
+
+        
+    </div>
+    <button id="update-button">VALIDER</button>
+    <div class="Block1">
+        <h2>RENDU</h2>
+     <div id="preview">
+        <iframe id="html-preview"></iframe>
+     </div>
+    </div>
+    <script>
+        const combinedCode = document.getElementById('combined-code');
+        const htmlPreview = document.getElementById('html-preview');
+        const updateButton = document.getElementById('update-button');
+        const verification = document.getElementById('verification');
+        updateButton.addEventListener('click', updatePreview);
+
+        function updatePreview() {
+            const codeContent = combinedCode.value;
+
+            htmlPreview.srcdoc = codeContent + "<span>JOAN_BALL</span>";
+
+        }
+    </script>
+</body>
+</html>

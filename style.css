@@ -1,19 +1,31 @@
+*{
+    margin: 0;
+}
 body {
     display: flex;
-    flex-direction: row;
-    margin: 0;
-    padding: 0;
+    margin: 1%;
+    padding: 10px;
+    background-color: #f4f1f5;
 }
 
 #code-editor {
-    flex: 1;
-    padding: 20px;
-    background-color: #f0f0f0;
+    width: 40%;
+    height: 100%;
+    padding-top: 1%;
+    padding-left: 5%;
+}
+
+#combined-code {
 }
 
 #preview {
-    flex: 1;
-    padding: 20px;
+    text-align: left;
+    border: 1px solid #080202;
+    box-shadow: 1px 1px 1px #0b0505;
+    height: 95%;
+    background-color: white;
+    text-align: right;
+    border-radius: 1%
 }
 
 iframe {
@@ -23,14 +35,48 @@ iframe {
 }
 
 button {
-    padding: 10px 20px;
-    background-color: #007bff;
+    justify-content: center;
+    padding: 1.5% 2%;
+    margin-left: 20px;
+    margin-right: 60px;
+    margin-top: 300px;
+    height: 3%;
+    background-color: #f308bc;
+    border-color: #f308bc;
+    border-radius: 10%;
     color: #fff;
-    border: none;
     cursor: pointer;
+    text-align: center;
 }
 
 #verification {
-    margin-top: 20px;
     color: red;
+}
+
+h1{
+    text-align: center;
+}
+
+h2{
+    text-align: center;
+    color: #f308bc;
+}
+
+textarea {
+    resize: none;
+    padding: 8%;
+    height: 40em;
+    width: 75%;
+    line-height: 1.5;
+    border-radius: 1%;
+    border: 1px solid #080202;
+    box-shadow: 1px 1px 1px #0b0505;
+  }
+
+.Block1{
+    margin-top: 1%;
+    width: 40%;
+    text-align: center;
+    float: right;
+    margin-right: 10px;
 }
