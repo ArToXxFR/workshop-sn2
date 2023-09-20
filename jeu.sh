@@ -6,17 +6,42 @@ path=$(pwd)
 
 pkill -f chrono.py
 
-echo "Bonjour et bienvenue dans CodeWebPourTous"
-echo "Voulez-vous jouer ?"
-echo "Répondez oui pour commencer ou non pour éteindre le programme"
+clear
+
+echo -e"Bonjour et bienvenue dans CodeWebPourTous \n"
+echo -e "Plongez dans le monde passionnant du développement web 
+tout en explorant la contribution exceptionnelle des femmes dans 
+le domaine de l'informatique. Ce jeu innovant propose des exercices 
+de HTML/CSS tout en offrant un aperçu fascinant de l'histoire des 
+femmes pionnières de l'informatique.
+
+Objectif : Apprendre les bases du développement web (HTML/CSS) et 
+découvrir des figures emblématiques de l'informatique.
+
+Comment ça fonctionne :
+
+    Exercices de HTML/CSS : Chaque niveau du jeu vous présente des 
+    exercices de codage HTML/CSS. Vous devrez résoudre ces petits défis
+    pour avancer dans le jeu.
+
+    Histoire des femmes de l'informatique : Une fois que vous avez terminé 
+    un exercice, un code caché est révélé sur la page web. Vous devez trouver 
+    ce code et le saisir dans le "terminal" du jeu.
+
+    Biographie des héroïnes de l'informatique : Si vous entrez le code
+    correctement, vous débloquerez l'accès à une biographie détaillée 
+    d'une femme exceptionnelle de l'histoire de l'informatique. Apprenez 
+    comment ces femmes ont influencé le domaine et ont ouvert la voie pour
+    les générations futures.\n"
+
+echo "Pour commencer la partie tapez 'oui' ou 'non' pour ne pas commencer la partie maintenant :"
 
 start() {
-    echo "Réponse :"
     read commencer
     if [ "$commencer" == "oui" ]; then
         echo "c bon"
     elif [ "$commencer" == "non" ]; then
-        echo "A bient�t !"
+        echo "A bientot !"
         exit 0
     else
         echo "La réponse est incorrecte"
@@ -25,28 +50,44 @@ start() {
     fi
 }
 
+hint() {
+    declare -A hint_array
+    hint_array['ADA_LOVELACE']="2"
+    hint_array['HEDY_LAMARR']="2"
+    hint_array['JEAN_BARTIK']="2"
+    hint_array['GRACE_HOPPER']="3"
+    hint_array['EVELYN_BOYD']="3"
+    hint_array['MARGARET_HAMILTON']="2"
+    hint_array['JOAN_BALL']="1"
+    hint_array['ELISABETH_FEINLER']="1"
+    hint_array['JANESE_SWANSON']="3"
+    hint_array['DONNA_DUBINSKY']="1"
+}
+
 game() {
     page="page$1"
     if [ -z "$3" ]; then
-        chromium-browser "$path/$page.html"
+        chromium-browser "$path/pages_jeu/$page.html"
     fi
     echo "Quel est le mot de passe que vous avez trouvé ?"
     read answeruser
     if [ "$answeruser" == "$2" ]; then
         echo "Bravo vous avez trouvé le mot de passe de la page numéro $1"
         echo "Vous passez maintenant au niveau suivant."
-	python led_true.py &
-	pkill -f chrono.py
+        python led_true.py &
+        pkill -f chrono.py
+        pkill chromium-browser
         clear
     elif [ "$answeruser" == "recommencer" ]; then
-        chromium-browser "$path/$page.html"
+        pkill chromium-browser
+        chromium-browser "$path/pages_jeu/$page.html"
         game $1 $2 "restart"
     elif [ "$answeruser" == "indice" ]; then
         echo "indice"
         game $1 $2 "restart"
     else
         echo "Le mot de passe est incorrect, recommencez"
-	python led_false.py &
+	    python led_false.py &
         game $1 $2 "restart"
     fi
 }
@@ -119,7 +160,7 @@ bio() {
     correct_answer="${answer_array[$1]}"
     answeruser=""
 
-    chromium-browser "$path/BIO_$1.html"
+    chromium-browser "$path/pages_bio/BIO_$1.html"
 
     echo -e "$question"
 
@@ -129,6 +170,7 @@ bio() {
         if [ "$answeruser" == "$correct_answer" ]; then
             python led_true.py
             echo "Bravo vous avez trouvé !"
+            pkill chromium-browser
         else
             python led_false.py
             echo "Mauvaise réponse !"
