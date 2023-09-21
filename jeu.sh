@@ -52,16 +52,18 @@ start() {
 
 hint() {
     declare -A hint_array
-    hint_array['ADA_LOVELACE']="2"
-    hint_array['HEDY_LAMARR']="2"
-    hint_array['JEAN_BARTIK']="2"
-    hint_array['GRACE_HOPPER']="3"
-    hint_array['EVELYN_BOYD']="3"
-    hint_array['MARGARET_HAMILTON']="2"
-    hint_array['JOAN_BALL']="1"
-    hint_array['ELISABETH_FEINLER']="1"
-    hint_array['JANESE_SWANSON']="3"
-    hint_array['DONNA_DUBINSKY']="1"
+    hint_array['ADA_LOVELACE']="Bizarre la couleur..."
+    hint_array['HEDY_LAMARR']="Elle est loin la marge !"
+    hint_array['JEAN_BARTIK']="On voit pas le fond."
+    hint_array['GRACE_HOPPER']="Elle est grosse la bordure."
+    hint_array['EVELYN_BOYD']="J'aime bien m'habiller en noir !"
+    hint_array['MARGARET_HAMILTON']="Decale moi ca !"
+    hint_array['JOAN_BALL']="C'est mieux avec la meme ecriture."
+    hint_array['ELISABETH_FEINLER']="Retire ta loupe."
+    hint_array['JANESE_SWANSON']="Pas opaque le pack"
+    hint_array['DONNA_DUBINSKY']="Y'a trop de vert..."
+
+    echo "$hint_array[$1]"
 }
 
 game() {
@@ -69,6 +71,8 @@ game() {
     if [ -z "$3" ]; then
         chromium-browser "$path/pages_jeu/$page.html"
     fi
+    echo "Si vous avez besoin de recommencer le niveau tapez 'recommencer'"
+    echo "Si vous bloquez sur le niveau, tapez 'indice' \n"
     echo "Quel est le mot de passe que vous avez trouvé ?"
     read answeruser
     if [ "$answeruser" == "$2" ]; then
@@ -81,10 +85,10 @@ game() {
     elif [ "$answeruser" == "recommencer" ]; then
         pkill chromium-browser
         chromium-browser "$path/pages_jeu/$page.html"
-        game $1 $2 "restart"
+        game "$1" "$2" "restart"
     elif [ "$answeruser" == "indice" ]; then
-        echo "indice"
-        game $1 $2 "restart"
+        hint "$2"
+        game "$1" "$2" "restart"
     else
         echo "Le mot de passe est incorrect, recommencez"
 	    python led_false.py &
